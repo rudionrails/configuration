@@ -4,23 +4,25 @@ $:.unshift lib unless $:.include?(lib)
 
 require "configuration"
 
-Gem::Specification::new do |spec|
+Gem::Specification::new do |s|
 
-	spec.name     = "configuration"
-  spec.version  = Configuration.version
-  spec.platform = Gem::Platform::RUBY
+	s.name     = "configuration"
+  s.version  = Configuration::VERSION
+  s.platform = Gem::Platform::RUBY
   
-	spec.authors  = ["Ara T. Howard"]
-	spec.email = "ara.t.howard@gmail.com"
+	s.authors  = ["Ara T. Howard"]
+	s.email = "ara.t.howard@gmail.com"
 
-  spec.homepage = "http://github.com/ahoward/configuration/tree/master"  
-  spec.summary = "configuration"
+  s.homepage = "http://github.com/ahoward/configuration"  
+  s.summary = "configuration"
   
-  spec.rubyforge_project = "codeforpeople"
+  s.rubyforge_project = "codeforpeople"
 
-  spec.files         = `git ls-files`.split("\n")
-  spec.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  spec.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.require_paths = ["lib"]
+  
+  s.add_dependency 'rake'
 
 end

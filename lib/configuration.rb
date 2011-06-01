@@ -1,6 +1,6 @@
 class Configuration
-  Configuration::Version = '1.2.0'
-  def Configuration.version() Configuration::Version end
+	VERSION = '1.2.0'
+	
 
   Path = [
     if defined? CONFIGURATION_PATH
