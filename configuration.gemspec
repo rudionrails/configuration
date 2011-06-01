@@ -1,28 +1,26 @@
-## configuration.gemspec
-#
+# -*- encoding: utf-8 -*-
+lib = File.expand_path('../lib/', __FILE__)
+$:.unshift lib unless $:.include?(lib)
+
+require "configuration"
 
 Gem::Specification::new do |spec|
-  spec.name = "configuration"
-  spec.version = "1.1.1"
+
+	spec.name     = "configuration"
+  spec.version  = Configuration.version
   spec.platform = Gem::Platform::RUBY
+  
+	spec.authors  = ["Ara T. Howard"]
+	spec.email = "ara.t.howard@gmail.com"
+
+  spec.homepage = "http://github.com/ahoward/configuration/tree/master"  
   spec.summary = "configuration"
-
-  spec.files = ["config", "config/a.rb", "config/b.rb", "config/c.rb", "config/d.rb", "config/e.rb", "configuration.gemspec", "lib", "lib/configuration.rb", "Rakefile", "README", "README.erb", "samples", "samples/a.rb", "samples/b.rb", "samples/c.rb", "samples/d.rb", "samples/e.rb"]
-  spec.executables = []
   
-  
-  spec.require_path = "lib"
-  
-
-  spec.has_rdoc = true
-  spec.test_files = nil
-  #spec.add_dependency 'lib', '>= version'
-  #spec.add_dependency 'fattr'
-
-  spec.extensions.push(*[])
-
   spec.rubyforge_project = "codeforpeople"
-  spec.author = "Ara T. Howard"
-  spec.email = "ara.t.howard@gmail.com"
-  spec.homepage = "http://github.com/ahoward/configuration/tree/master"
+
+  spec.files         = `git ls-files`.split("\n")
+  spec.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  spec.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  spec.require_paths = ["lib"]
+
 end
